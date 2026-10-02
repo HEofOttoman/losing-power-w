@@ -2,9 +2,10 @@
 ## Collaborators
 
 ### Role
-Person 1  
-Person 2  
-[Person w/ Link]()  
+Lolly - Musician
+Riley Nowakowski - Coaches kinda play
+@GirthyGamer - Artist
+[Henry Wauzivuff]() - Code
 
 ## Sourced
 ### Asset Type
