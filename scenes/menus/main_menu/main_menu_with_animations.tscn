@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dsby0175sak4m" path="res://scenes/windows/main_menu_options_window.tscn" id="3_2k5l7"]
 [ext_resource type="PackedScene" uid="uid://bu8clod805bsf" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_vsp5b"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_popup_window_panel.tscn" id="5_6xh1d"]
-[ext_resource type="Texture2D" uid="uid://btl3qh38u2u1g" path="res://icon.svg" id="5_ixa71"]
+[ext_resource type="Texture2D" uid="uid://cnnfxeck06mnc" path="res://assets/Charger.png" id="5_ixa71"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -311,9 +311,6 @@ texture = ExtResource("5_ixa71")
 
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" parent_id_path=PackedInt32Array(2112060331) index="0" unique_id=556427956]
 modulate = Color(1, 1, 1, 0)
-
-[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0" unique_id=359406872]
-text = "Losing Power W"
 
 [node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" parent_id_path=PackedInt32Array(1510335937) index="0" unique_id=930520368]
 modulate = Color(1, 1, 1, 0)

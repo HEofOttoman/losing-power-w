@@ -15,8 +15,9 @@ gradient = SubResource("Gradient_lquwl")
 width = 128
 height = 128
 fill = 1
-fill_from = Vector2(0.4765625, 0.5703125)
+fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.9140625, 0.84765625)
+metadata/_snap_enabled = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(48, 48)
@@ -27,21 +28,38 @@ bg_color = Color(0.9378234, 0.42226672, 0.24455956, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtha5"]
 bg_color = Color(0.859824, 0.8116914, 0.185779, 1)
 
-[sub_resource type="Gradient" id="Gradient_rdg5v"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.1, 0.8125)
+[sub_resource type="Gradient" id="Gradient_vtha5"]
+offsets = PackedFloat32Array(0, 0.20625, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.79375, 0.79375, 0.79375, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_8dto7"]
-gradient = SubResource("Gradient_rdg5v")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u8mh4"]
+gradient = SubResource("Gradient_vtha5")
+fill = 1
+fill_from = Vector2(0.90000004, 0.5)
+fill_to = Vector2(0.4, 0.90000004)
+metadata/_snap_enabled = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xepy2"]
 size = Vector2(34, 34)
+
+[sub_resource type="Gradient" id="Gradient_u8mh4"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8dto7"]
+gradient = SubResource("Gradient_u8mh4")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.90000004, 0.1)
+metadata/_snap_enabled = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1247735615 node_paths=PackedStringArray("powerbar")]
 script = ExtResource("1_rdg5v")
 powerbar = NodePath("CanvasLayer/PowerBar")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=377203160]
+position = Vector2(-2.861023e-06, -2.861023e-06)
+scale = Vector2(0.75000006, 0.75)
+energy = 0.45
 texture = SubResource("GradientTexture2D_lquwl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=11715179]
@@ -77,18 +95,24 @@ offset_right = 256.0
 offset_bottom = 144.0
 theme = ExtResource("5_u8mh4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_vtha5")
-value = 60.0
+max_value = 1000.0
+value = 500.0
 show_percentage = false
 
 [node name="Node2D" type="Node2D" parent="." unique_id=366661704]
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D" unique_id=1358186739]
-position = Vector2(121.25, 0)
-scale = Vector2(0.8027343, 48)
-energy = 0.44
-texture = SubResource("GradientTexture1D_8dto7")
+position = Vector2(55.999996, -2.9802322e-08)
+scale = Vector2(2.4022636, 0.9887568)
+texture = SubResource("GradientTexture2D_u8mh4")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=565021568]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1388582338]
 shape = SubResource("RectangleShape2D_xepy2")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=766286846]
+position = Vector2(2.3841858e-06, 7.6293945e-06)
+scale = Vector2(3.25, 3.25)
+energy = 0.1
+texture = SubResource("GradientTexture2D_8dto7")

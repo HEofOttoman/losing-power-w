@@ -9,7 +9,7 @@ var canpress7 : bool = false
 var canpress8 : bool = false
 
 @export var health: int = 100
-@export var power: int = 100
+@export var power: int = 1000
 @export var powerbar: ProgressBar
 
 func charge(amount: int):
@@ -18,7 +18,7 @@ func charge(amount: int):
 func _ready():
 	powerbar.value = power
 
-const SPEED = 300.0
+const SPEED = 100.0
 #const JUMP_VELOCITY = -400.0
 
 func get_input():
@@ -26,28 +26,43 @@ func get_input():
 	velocity = input_dir * SPEED
 	if input_dir != Vector2.ZERO:
 		power -= 1
-		powerbar.value = power
 		$Node2D.rotation = lerp($Node2D.rotation, atan2(input_dir.y, input_dir.x), 0.5)
-	
+
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("Interact"):
 		if (canpress == true):
 			$"../Lightbulb/Lightbulb/CollisionShape2D".disabled = true
 			$"../Lightbulb/PointLight2D".enabled = true
-			power -= 25
+			power -= 1250
 			powerbar.value = power
 			canpress = false
 		if (canpress2 == true):
 			$"../Poweroutlet/PointLight2D".enabled = false
 			$"../Poweroutlet/Poweroutlet/CollisionShape2D".disabled = true
-			power += 50
+			power += 2500
 			powerbar.value = power
+			if (power > $CanvasLayer/PowerBar.max_value):
+				power = $CanvasLayer/PowerBar.max_value
 			canpress2 = false
+		if (canpress3 == true):
+			canpress3 = false
+			$"../BatteryPack".hide()
+			$CanvasLayer/PowerBar.max_value = 5000.0
+
+	if Input.is_action_just_pressed("toggleflashlight"):
+		if ($Node2D/PointLight2D.enabled == true):
+			$Node2D/PointLight2D.enabled = false
+		else:
+			$Node2D/PointLight2D.enabled = true
+	if ($Node2D/PointLight2D.enabled == true):
+		power -= 1
+	powerbar.value = power
 	get_input()
 	move_and_slide()
 
 func _on_lightbulb_area_entered(area):
 	canpress = true
+	powerbar.value = power
 
 
 func _on_lightbulb_area_exited(area):
@@ -60,3 +75,11 @@ func _on_poweroutlet_area_entered(area):
 
 func _on_poweroutlet_area_exited(area):
 	canpress2 = false
+
+
+func _on_battery_pack_area_entered(area):
+	canpress3 = true
+
+
+func _on_battery_pack_area_exited(area):
+	canpress3 = false
