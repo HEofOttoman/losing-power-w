@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cmru85odcip0q"]
+
+[ext_resource type="Texture2D" uid="uid://btl3qh38u2u1g" path="res://icon.svg" id="1_7x8ur"]
+[ext_resource type="Script" uid="uid://6fwe2dvn7flo" path="res://resources/lightbulb.gd" id="2_yt1da"]
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7mycd"]
+gradient = SubResource("Gradient_lquwl")
+width = 700
+height = 700
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.90000004, 0.8)
+metadata/_snap_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xepy2"]
+size = Vector2(63.999985, 64)
+
+[node name="Lightbulb" type="Sprite2D" unique_id=970248189 node_paths=PackedStringArray("light", "interaction_label", "area")]
+scale = Vector2(0.49218744, 0.50000006)
+texture = ExtResource("1_7x8ur")
+script = ExtResource("2_yt1da")
+light = NodePath("Light")
+interact_text = "[E] Turn Light on"
+interaction_label = NodePath("InteractLabel")
+area = NodePath("Lightbulb")
+
+[node name="Light" type="PointLight2D" parent="." unique_id=1567407591]
+scale = Vector2(2.0317464, 1.9999999)
+enabled = false
+texture = SubResource("GradientTexture2D_7mycd")
+
+[node name="Lightbulb" type="Area2D" parent="." unique_id=433833393 groups=["lightbulb"]]
+scale = Vector2(2.0317464, 1.9999999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lightbulb" unique_id=1941689927]
+shape = SubResource("RectangleShape2D_xepy2")
+
+[node name="InteractLabel" type="Label" parent="." unique_id=1366682511]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "[E] Turn Light on"

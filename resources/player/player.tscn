@@ -52,9 +52,10 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.90000004, 0.1)
 metadata/_snap_enabled = true
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1247735615 node_paths=PackedStringArray("powerbar")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1247735615 node_paths=PackedStringArray("powerbar", "healthbar")]
 script = ExtResource("1_rdg5v")
 powerbar = NodePath("CanvasLayer/PowerBar")
+healthbar = NodePath("CanvasLayer/HealthBar")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=377203160]
 position = Vector2(-2.861023e-06, -2.861023e-06)
@@ -116,3 +117,5 @@ position = Vector2(2.3841858e-06, 7.6293945e-06)
 scale = Vector2(3.25, 3.25)
 energy = 0.1
 texture = SubResource("GradientTexture2D_8dto7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

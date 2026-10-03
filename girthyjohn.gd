@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name GirthyJohn
+
 var canpress : bool = false
 var canpress2 : bool = false
 var canpress3 : bool = false
@@ -8,15 +10,19 @@ var canpress6 : bool = false
 var canpress7 : bool = false
 var canpress8 : bool = false
 
+var current_interactible: Interactible
+
 @export var health: int = 100
 @export var power: int = 1000
 @export var powerbar: ProgressBar
+@export var healthbar: ProgressBar
 
 func charge(amount: int):
 	power = power + amount
 
 func _ready():
 	powerbar.value = power
+	healthbar.value = health
 
 const SPEED = 100.0
 #const JUMP_VELOCITY = -400.0
@@ -71,6 +77,7 @@ func _on_lightbulb_area_exited(area):
 
 func _on_poweroutlet_area_entered(area):
 	canpress2 = true
+	print("hi")
 
 
 func _on_poweroutlet_area_exited(area):
@@ -83,3 +90,26 @@ func _on_battery_pack_area_entered(area):
 
 func _on_battery_pack_area_exited(area):
 	canpress3 = false
+
+func _unhandled_input(event):
+	if event.is_action_pressed("Interact") and current_interactible != null:
+		print("current_interactible:")
+		print(current_interactible)
+		current_interactible.interact(self)
+
+#func _on_area_entered(area: Area2D):
+	#print(area)
+	#print(area.get_groups())
+	#if area.get_groups().has("lightbulb"):
+		#current_interactible = area.get_parent()
+		#print("press E")
+
+
+
+func _on_area_2d_area_entered(body):
+	print(body)
+	print(body.get_groups())
+	if body.get_parent() is Interactible:
+		current_interactible = body.get_parent()
+		print("press E")
+		body.get_parent().interaction_label.show()
