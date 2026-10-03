@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://o2k1iwraqki2"]
 
 [ext_resource type="Script" uid="uid://urik6l622icu" path="res://girthyjohn.gd" id="1_rdg5v"]
-[ext_resource type="Texture2D" uid="uid://btl3qh38u2u1g" path="res://icon.svg" id="2_u8mh4"]
+[ext_resource type="Texture2D" uid="uid://cn8yt0u0inmwy" path="res://assets/please please workwork.webp" id="2_u8mh4"]
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="3_vtha5"]
 [ext_resource type="PackedScene" uid="uid://ciextx73sasqg" path="res://scenes/windows/pause_menu.tscn" id="4_ymov1"]
 [ext_resource type="Theme" uid="uid://cns1mf54ccdp2" path="res://resources/themes/gravity.tres" id="5_u8mh4"]
@@ -39,15 +39,14 @@ size = Vector2(34, 34)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1247735615 node_paths=PackedStringArray("powerbar")]
 script = ExtResource("1_rdg5v")
-power = 100
 powerbar = NodePath("CanvasLayer/PowerBar")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=377203160]
 texture = SubResource("GradientTexture2D_lquwl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=11715179]
-position = Vector2(1.4305115e-06, -4.7683716e-07)
-scale = Vector2(0.375, 0.375)
+position = Vector2(-4.7683716e-07, 4.7683716e-07)
+scale = Vector2(1.0322579, 1.0322579)
 texture = ExtResource("2_u8mh4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94585922]
@@ -92,5 +91,4 @@ texture = SubResource("GradientTexture1D_8dto7")
 [node name="Area2D" type="Area2D" parent="." unique_id=565021568]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1388582338]
-position = Vector2(7, -7)
 shape = SubResource("RectangleShape2D_xepy2")

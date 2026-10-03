@@ -1913,4 +1913,26 @@ offset_right = 1408.0
 offset_bottom = 392.0
 color = Color(0, 0, 0, 1)
 
+[node name="Poweroutlet" type="Sprite2D" parent="." unique_id=1045837901]
+position = Vector2(224.00003, -352.00003)
+scale = Vector2(0.49218744, 0.50000006)
+texture = ExtResource("1_ig7tw")
+
+[node name="PointLight2D" type="PointLight2D" parent="Poweroutlet" unique_id=1007058073]
+position = Vector2(-3.0517578e-05, 6.1035156e-05)
+scale = Vector2(2.0317464, 1.9999999)
+color = Color(1, 1, 0.49019608, 1)
+energy = 0.45
+texture = SubResource("GradientTexture2D_7mycd")
+
+[node name="Poweroutlet" type="Area2D" parent="Poweroutlet" unique_id=253271906]
+position = Vector2(-6.484985e-05, 6.1035156e-05)
+scale = Vector2(2.0317464, 1.9999999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Poweroutlet/Poweroutlet" unique_id=287295176]
+shape = SubResource("RectangleShape2D_xepy2")
+
 [connection signal="area_entered" from="Lightbulb/Lightbulb" to="CharacterBody2D" method="_on_lightbulb_area_entered"]
+[connection signal="area_exited" from="Lightbulb/Lightbulb" to="CharacterBody2D" method="_on_lightbulb_area_exited"]
+[connection signal="area_entered" from="Poweroutlet/Poweroutlet" to="CharacterBody2D" method="_on_poweroutlet_area_entered"]
+[connection signal="area_exited" from="Poweroutlet/Poweroutlet" to="CharacterBody2D" method="_on_poweroutlet_area_exited"]
