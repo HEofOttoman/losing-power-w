@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://o2k1iwraqki2"]
+
+[ext_resource type="Script" uid="uid://urik6l622icu" path="res://girthyjohn.gd" id="1_rdg5v"]
+[ext_resource type="Texture2D" uid="uid://btl3qh38u2u1g" path="res://icon.svg" id="2_u8mh4"]
+[ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="3_vtha5"]
+[ext_resource type="PackedScene" uid="uid://ciextx73sasqg" path="res://scenes/windows/pause_menu.tscn" id="4_ymov1"]
+[ext_resource type="Theme" uid="uid://cns1mf54ccdp2" path="res://resources/themes/gravity.tres" id="5_u8mh4"]
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+offsets = PackedFloat32Array(0, 0.91875)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lquwl"]
+gradient = SubResource("Gradient_lquwl")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.4765625, 0.5703125)
+fill_to = Vector2(0.9140625, 0.84765625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(48, 48)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wep1q"]
+bg_color = Color(0.9378234, 0.42226672, 0.24455956, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtha5"]
+bg_color = Color(0.859824, 0.8116914, 0.185779, 1)
+
+[sub_resource type="Gradient" id="Gradient_rdg5v"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.1, 0.8125)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8dto7"]
+gradient = SubResource("Gradient_rdg5v")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xepy2"]
+size = Vector2(34, 34)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1247735615 node_paths=PackedStringArray("powerbar")]
+script = ExtResource("1_rdg5v")
+power = 100
+powerbar = NodePath("CanvasLayer/PowerBar")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=377203160]
+texture = SubResource("GradientTexture2D_lquwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=11715179]
+position = Vector2(1.4305115e-06, -4.7683716e-07)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("2_u8mh4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94585922]
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1259772746]
+zoom = Vector2(2, 2)
+
+[node name="Pause Menu" type="Node" parent="Camera2D" unique_id=1985737737]
+script = ExtResource("3_vtha5")
+pause_menu_packed = ExtResource("4_ymov1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1609947000]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer" unique_id=1450406964]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 256.0
+offset_bottom = 72.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_wep1q")
+value = 60.0
+show_percentage = false
+
+[node name="PowerBar" type="ProgressBar" parent="CanvasLayer" unique_id=1280809974]
+offset_left = 16.0
+offset_top = 80.0
+offset_right = 256.0
+offset_bottom = 144.0
+theme = ExtResource("5_u8mh4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vtha5")
+value = 60.0
+show_percentage = false
+
+[node name="Node2D" type="Node2D" parent="." unique_id=366661704]
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2D" unique_id=1358186739]
+position = Vector2(121.25, 0)
+scale = Vector2(0.8027343, 48)
+energy = 0.44
+texture = SubResource("GradientTexture1D_8dto7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=565021568]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1388582338]
+position = Vector2(7, -7)
+shape = SubResource("RectangleShape2D_xepy2")
