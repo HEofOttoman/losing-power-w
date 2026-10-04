@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkkindp8hpl3g"
+path="res://.godot/imported/Enemy Explosion.mp3-9dcd85ff8256a06b1e0f6ab3f9650b87.mp3str"
+
+[deps]
+
+source_file="res://Enemy Explosion.mp3"
+dest_files=["res://.godot/imported/Enemy Explosion.mp3-9dcd85ff8256a06b1e0f6ab3f9650b87.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

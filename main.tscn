@@ -2436,6 +2436,9 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.9000001, 0.10000001)
 metadata/_snap_enabled = true
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w48qg"]
+size = Vector2(32, 72)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
 atlas = ExtResource("8_5vw27")
 region = Rect2(0, 0, 64, 64)
@@ -2542,9 +2545,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w48qg"]
-size = Vector2(20, 56)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efxa6"]
 size = Vector2(16, 16)
 
@@ -2567,7 +2567,6 @@ shape = SubResource("RectangleShape2D_qc24j")
 stream = SubResource("AudioStreamMP3_272bh")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1924840472]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=196154254]
@@ -2676,7 +2675,7 @@ shape = SubResource("RectangleShape2D_xepy2")
 
 [node name="Water" type="Sprite2D" parent="." unique_id=719560789]
 material = SubResource("ShaderMaterial_5vw27")
-position = Vector2(1312, -984)
+position = Vector2(1112, -984.00006)
 scale = Vector2(0.2661123, 0.38589963)
 texture = SubResource("CompressedTexture2D_7mycd")
 
@@ -2701,10 +2700,11 @@ shape = SubResource("RectangleShape2D_272bh")
 position = Vector2(144, -80)
 
 [node name="Xavier\'s toe" type="CharacterBody2D" parent="." unique_id=1240867938 node_paths=PackedStringArray("bounding_box", "interaction_label", "area", "light")]
+position = Vector2(-8, 0)
 script = ExtResource("12_w48qg")
 bounding_box = NodePath("CollisionShape2D")
-interaction_label = NodePath("Xavier\'s Toe/ToeLabel")
-area = NodePath("Xavier\'s Toe/Area2D")
+interaction_label = NodePath("ToeLabel")
+area = NodePath("Area2D")
 light = NodePath("PointLight2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Xavier\'s toe" unique_id=1457800063]
@@ -2715,26 +2715,26 @@ shape = SubResource("RectangleShape2D_8dto7")
 position = Vector2(1441, -947)
 texture = SubResource("GradientTexture2D_qc24j")
 
+[node name="ToeLabel" type="Label" parent="Xavier\'s toe" unique_id=444703308]
+offset_left = 1416.0
+offset_top = -952.0
+offset_right = 1583.0
+offset_bottom = -929.0
+theme_override_font_sizes/font_size = 6
+text = "[E] Electrocute his ass"
+
+[node name="Area2D" type="Area2D" parent="Xavier\'s toe" unique_id=861510024]
+position = Vector2(1441, -947)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Xavier\'s toe/Area2D" unique_id=1986275836]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_w48qg")
+
 [node name="Xavier\'s Toe" type="AnimatedSprite2D" parent="Xavier\'s toe" unique_id=1569434367]
 position = Vector2(1441, -947)
 sprite_frames = SubResource("SpriteFrames_xepy2")
 autoplay = "default"
-frame_progress = 0.011461272
-
-[node name="ToeLabel" type="Label" parent="Xavier\'s toe/Xavier\'s Toe" unique_id=444703308]
-visible = false
-offset_left = -25.0
-offset_top = -5.0
-offset_right = 142.0
-offset_bottom = 18.0
-theme_override_font_sizes/font_size = 6
-text = "[E] Electrocute his ass"
-
-[node name="Area2D" type="Area2D" parent="Xavier\'s toe/Xavier\'s Toe" unique_id=861510024]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Xavier\'s toe/Xavier\'s Toe/Area2D" unique_id=1986275836]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_w48qg")
+frame_progress = 0.011737666
 
 [node name="Lightbulb2" parent="." unique_id=957767751 instance=ExtResource("6_5vw27")]
 position = Vector2(417, -432)
