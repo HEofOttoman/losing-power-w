@@ -34,34 +34,34 @@ func get_input():
 		power -= 1
 		$Node2D.rotation = lerp($Node2D.rotation, atan2(input_dir.y, input_dir.x), 0.5)
 
-func _physics_process(_delta):
-	if Input.is_action_just_pressed("Interact"):
-		if (canpress == true):
-			$"../Lightbulb/Lightbulb/CollisionShape2D".disabled = true
-			$"../Lightbulb/PointLight2D".enabled = true
-			power -= 1250
-			powerbar.value = power
-			canpress = false
-		if (canpress2 == true):
-			$"../Poweroutlet/PointLight2D".enabled = false
-			$"../Poweroutlet/Poweroutlet/CollisionShape2D".disabled = true
-			power += 2500
-			powerbar.value = power
-			if (power > $CanvasLayer/PowerBar.max_value):
-				power = $CanvasLayer/PowerBar.max_value
-			canpress2 = false
-		if (canpress3 == true):
-			canpress3 = false
-			$"../BatteryPack".hide()
-			$CanvasLayer/PowerBar.max_value = 5000.0
-
-	if Input.is_action_just_pressed("toggleflashlight"):
-		if ($Node2D/PointLight2D.enabled == true):
-			$Node2D/PointLight2D.enabled = false
-		else:
-			$Node2D/PointLight2D.enabled = true
+func _physics_process(delta):
+	#if Input.is_action_just_pressed("Interact"):
+		#if (canpress == true):
+			#$"../Lightbulb/Lightbulb/CollisionShape2D".disabled = true
+			#$"../Lightbulb/PointLight2D".enabled = true
+			#power -= 1250
+			#powerbar.value = power
+			#canpress = false
+		#if (canpress2 == true):
+			#$"../Poweroutlet/PointLight2D".enabled = false
+			#$"../Poweroutlet/Poweroutlet/CollisionShape2D".disabled = true
+			#power += 2500
+			#powerbar.value = power
+			#if (power > $CanvasLayer/PowerBar.max_value):
+				#power = $CanvasLayer/PowerBar.max_value
+			#canpress2 = false
+		#if (canpress3 == true):
+			#canpress3 = false
+			#$"../BatteryPack".hide()
+			#$CanvasLayer/PowerBar.max_value = 5000.0
+#
+	#if Input.is_action_just_pressed("toggleflashlight"):
+		#if ($Node2D/PointLight2D.enabled == true):
+			#$Node2D/PointLight2D.enabled = false
+		#else:
+			#$Node2D/PointLight2D.enabled = true
 	if ($Node2D/PointLight2D.enabled == true):
-		power -= 1
+		power -= 1 * delta
 	powerbar.value = power
 	get_input()
 	move_and_slide()
@@ -97,19 +97,10 @@ func _unhandled_input(event):
 		print(current_interactible)
 		current_interactible.interact(self)
 
-#func _on_area_entered(area: Area2D):
-	#print(area)
-	#print(area.get_groups())
-	#if area.get_groups().has("lightbulb"):
-		#current_interactible = area.get_parent()
-		#print("press E")
-
-
-
-func _on_area_2d_area_entered(body):
+func _on_area_entered(body):
 	print(body)
 	print(body.get_groups())
 	if body.get_parent() is Interactible:
 		current_interactible = body.get_parent()
 		print("press E")
-		body.get_parent().interaction_label.show()
+		#body.get_parent().interaction_label.show()

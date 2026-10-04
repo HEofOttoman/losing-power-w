@@ -6,14 +6,14 @@ class_name Lightbulb
 func _ready():
 	super()
 	enabled = false
-	#light.visible = 
+	light.enabled = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func toggle_light(yes: bool):
 	if yes == true:
 		light.show()
 		light.enabled = true
-		interaction_label.show
+		interaction_label.show()
 		enabled = true
 	else:
 		light.hide()
@@ -23,7 +23,6 @@ func toggle_light(yes: bool):
 func interact(player: GirthyJohn) -> void:
 	super(player)
 	player.power -= 1250
-	
 	if enabled == true:
 		return
 	else:

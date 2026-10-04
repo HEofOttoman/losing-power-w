@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bs1ctqwqgvpky"
+path="res://.godot/imported/Boss fight.mp3-9c42e4f23fa94c8d096518cab786f7a2.mp3str"
+
+[deps]
+
+source_file="res://Boss fight.mp3"
+dest_files=["res://.godot/imported/Boss fight.mp3-9c42e4f23fa94c8d096518cab786f7a2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

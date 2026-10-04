@@ -100,6 +100,20 @@ max_value = 1000.0
 value = 500.0
 show_percentage = false
 
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=492860620]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 68.0
+offset_bottom = 31.0
+text = "Health"
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1085544240]
+offset_left = 16.0
+offset_top = 82.0
+offset_right = 71.0
+offset_bottom = 105.0
+text = "Charge"
+
 [node name="Node2D" type="Node2D" parent="." unique_id=366661704]
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D" unique_id=1358186739]
@@ -118,4 +132,4 @@ scale = Vector2(3.25, 3.25)
 energy = 0.1
 texture = SubResource("GradientTexture2D_8dto7")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
