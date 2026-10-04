@@ -1,8 +1,10 @@
+class_name Enemy
 extends CharacterBody2D
 var alarm
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-@onready var ray_cast_2d = $RayCast2D
+@onready var ray_cast_2d : RayCast2D = $RayCast2D
 
+@onready var player : GirthyJohn = $"../CharacterBody2D"
 
 var movement_speed = 50
 
@@ -14,7 +16,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var mouse_position = $"../../Player".position
+	var mouse_position = player.position
 	if not ray_cast_2d.is_colliding():
 		navigation_agent_2d.target_position = mouse_position
 		var current_agent_postition = global_position

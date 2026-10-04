@@ -13,12 +13,15 @@ var canpress8 : bool = false
 var current_interactible: Interactible
 
 @export var health: int = 100
-@export var power: int = 1000
+@export var power: = 1000
 @export var powerbar: ProgressBar
 @export var healthbar: ProgressBar
 
 func charge(amount: int):
 	power = power + amount
+
+func damage(damage: float):
+	health -= damage
 
 func _ready():
 	powerbar.value = power
@@ -55,11 +58,11 @@ func _physics_process(delta):
 			#$"../BatteryPack".hide()
 			#$CanvasLayer/PowerBar.max_value = 5000.0
 #
-	#if Input.is_action_just_pressed("toggleflashlight"):
-		#if ($Node2D/PointLight2D.enabled == true):
-			#$Node2D/PointLight2D.enabled = false
-		#else:
-			#$Node2D/PointLight2D.enabled = true
+	if Input.is_action_just_pressed("toggleflashlight"):
+		if ($Node2D/PointLight2D.enabled == true):
+			$Node2D/PointLight2D.enabled = false
+		else:
+			$Node2D/PointLight2D.enabled = true
 	if ($Node2D/PointLight2D.enabled == true):
 		power -= 1 * delta
 	powerbar.value = power
@@ -104,3 +107,10 @@ func _on_area_entered(body):
 		current_interactible = body.get_parent()
 		print("press E")
 		#body.get_parent().interaction_label.show()
+	if body is Enemy:
+		#damage()
+		pass
+
+
+func _on_water_area_entered(area):
+	$"../Water/PointLight2D".enabled = true

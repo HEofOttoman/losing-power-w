@@ -20,7 +20,7 @@ fill_to = Vector2(0.9140625, 0.84765625)
 metadata/_snap_enabled = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
-size = Vector2(48, 48)
+size = Vector2(32, 32)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wep1q"]
 bg_color = Color(0.9378234, 0.42226672, 0.24455956, 1)
@@ -40,7 +40,7 @@ fill_to = Vector2(0.4, 0.90000004)
 metadata/_snap_enabled = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xepy2"]
-size = Vector2(34, 34)
+size = Vector2(48, 48)
 
 [sub_resource type="Gradient" id="Gradient_u8mh4"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -100,14 +100,14 @@ max_value = 1000.0
 value = 500.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=492860620]
+[node name="HealthLabel" type="Label" parent="CanvasLayer" unique_id=492860620]
 offset_left = 16.0
 offset_top = 8.0
 offset_right = 68.0
 offset_bottom = 31.0
 text = "Health"
 
-[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1085544240]
+[node name="PowerLabel" type="Label" parent="CanvasLayer" unique_id=1085544240]
 offset_left = 16.0
 offset_top = 82.0
 offset_right = 71.0

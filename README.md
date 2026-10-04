@@ -1,4 +1,4 @@
 # losing-power-help
 jame gam* game
 
-This is unaffiliated
+This is unaffiliated with jamegam.hackclub.com

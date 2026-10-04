@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://xctjs8a742d2"]
+
+[ext_resource type="Texture2D" uid="uid://cnnfxeck06mnc" path="res://assets/Charger.png" id="1_w5xxa"]
+[ext_resource type="Script" uid="uid://cmt2vyfvak6wy" path="res://resources/interactibles/charger.gd" id="2_swnsg"]
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7mycd"]
+gradient = SubResource("Gradient_lquwl")
+width = 700
+height = 700
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.90000004, 0.8)
+metadata/_snap_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xepy2"]
+size = Vector2(63.999985, 64)
+
+[node name="Poweroutlet3" type="Sprite2D" unique_id=1717971717 node_paths=PackedStringArray("interaction_label", "area", "light")]
+scale = Vector2(0.13305616, 0.11873836)
+texture = ExtResource("1_w5xxa")
+script = ExtResource("2_swnsg")
+interact_text = "[E] to charge"
+interaction_label = NodePath("InteractLabel")
+area = NodePath("Poweroutlet")
+light = NodePath("PointLight2D")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=593415010]
+position = Vector2(-36.98513, 99.6874)
+scale = Vector2(3.924129, 4.3281274)
+color = Color(1, 1, 0.49019608, 1)
+energy = 0.45
+texture = SubResource("GradientTexture2D_7mycd")
+
+[node name="Poweroutlet" type="Area2D" parent="." unique_id=956973379]
+position = Vector2(-6.484985e-05, 6.1035156e-05)
+scale = Vector2(2.0317464, 1.9999999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Poweroutlet" unique_id=824688458]
+position = Vector2(6.1035156e-05, -0.00012207031)
+scale = Vector2(0.9999998, 0.99999976)
+shape = SubResource("RectangleShape2D_xepy2")
+
+[node name="InteractLabel" type="Label" parent="." unique_id=757549836]
+offset_left = -120.24998
+offset_top = -0.0005140307
+offset_right = 62.750023
+offset_bottom = 22.999485
+text = "[E]  Charge your battery"

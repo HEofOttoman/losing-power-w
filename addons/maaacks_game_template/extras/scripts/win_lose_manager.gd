@@ -1,4 +1,5 @@
 extends Node
+class_name WinLoseManager
 
 ## Path to a main menu scene.
 ## Will use ProjectSettings paths if left empty.
