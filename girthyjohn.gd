@@ -38,6 +38,13 @@ func get_input():
 		$Node2D.rotation = lerp($Node2D.rotation, atan2(input_dir.y, input_dir.x), 0.5)
 
 func _physics_process(delta):
+	if health == 0:
+		$"../WinZone/Winlose".game_lost()
+	
+	if power == 0:
+		health -= 5 * delta
+		
+	
 	#if Input.is_action_just_pressed("Interact"):
 		#if (canpress == true):
 			#$"../Lightbulb/Lightbulb/CollisionShape2D".disabled = true
@@ -64,18 +71,20 @@ func _physics_process(delta):
 		else:
 			$Node2D/PointLight2D.enabled = true
 	if ($Node2D/PointLight2D.enabled == true):
+		power -= 1.5 * delta
+	else:
 		power -= 1 * delta
 	powerbar.value = power
+	healthbar.value = health
 	get_input()
 	move_and_slide()
 
-func _on_lightbulb_area_entered(area):
-	canpress = true
-	powerbar.value = power
+#func _on_lightbulb_area_entered(area):
+	#canpress = true
+	#powerbar.value = power
 
-
-func _on_lightbulb_area_exited(area):
-	canpress = false
+#func _on_lightbulb_area_exited(area):
+	#canpress = false
 
 
 func _on_poweroutlet_area_entered(area):

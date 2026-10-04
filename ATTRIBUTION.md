@@ -4,7 +4,7 @@
 ### Role
 Lolly - Musician
 Riley Nowakowski - Coaches kinda play
-@GirthyGamer - Artist
+~~@GirthyGamer - Artist~~ left 
 [Henry Wauzivuff]() - Code
 
 ## Sourced

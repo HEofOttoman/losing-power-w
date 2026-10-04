@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="3_2v40y"]
 [ext_resource type="AudioStream" uid="uid://bs1ctqwqgvpky" path="res://Boss fight.mp3" id="3_bfvdl"]
 
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_vivmo"]
+file = "res://edit.ogv"
+
 [node name="EndCredits" unique_id=613298766 instance=ExtResource("1_h82up")]
 script = ExtResource("2_0sycx")
 main_menu_scene_path = ""
@@ -18,7 +21,16 @@ stream = ExtResource("3_bfvdl")
 autoplay = true
 bus = &"Music"
 
-[node name="BackgroundColor" type="ColorRect" parent="." index="1" unique_id=813188635]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." index="1" unique_id=1891587768]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = SubResource("VideoStreamTheora_vivmo")
+volume_db = -80.0
+autoplay = true
+
+[node name="BackgroundColor" type="ColorRect" parent="." index="2" unique_id=813188635]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="BackgroundTextureRect" type="TextureRect" parent="." index="2" unique_id=1166831285]
+[node name="BackgroundTextureRect" type="TextureRect" parent="." index="3" unique_id=1166831285]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,7 +50,7 @@ texture = ExtResource("3_0sycx")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ScrollContainer" parent="." index="3" unique_id=1039720129]
+[node name="ScrollContainer" parent="." index="4" unique_id=1039720129]
 scroll_vertical = 1891
 
 [node name="HeaderSpace" parent="ScrollContainer/VBoxContainer" parent_id_path=PackedInt32Array(2067921385) index="0" unique_id=1552560353]
@@ -89,7 +101,7 @@ License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License
 [node name="FooterSpace" parent="ScrollContainer/VBoxContainer" parent_id_path=PackedInt32Array(2067921385) index="2" unique_id=1703782196]
 custom_minimum_size = Vector2(0, 648)
 
-[node name="CenterContainer" type="CenterContainer" parent="." index="4" unique_id=535959837]
+[node name="CenterContainer" type="CenterContainer" parent="." index="5" unique_id=535959837]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0

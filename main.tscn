@@ -2674,6 +2674,7 @@ scale = Vector2(0.9999998, 0.99999976)
 shape = SubResource("RectangleShape2D_xepy2")
 
 [node name="Water" type="Sprite2D" parent="." unique_id=719560789]
+visible = false
 material = SubResource("ShaderMaterial_5vw27")
 position = Vector2(1112, -984.00006)
 scale = Vector2(0.2661123, 0.38589963)
@@ -2734,7 +2735,7 @@ shape = SubResource("RectangleShape2D_w48qg")
 position = Vector2(1441, -947)
 sprite_frames = SubResource("SpriteFrames_xepy2")
 autoplay = "default"
-frame_progress = 0.011737666
+frame_progress = 0.32454693
 
 [node name="Lightbulb2" parent="." unique_id=957767751 instance=ExtResource("6_5vw27")]
 position = Vector2(417, -432)
@@ -2746,6 +2747,7 @@ position = Vector2(824.00006, -1184)
 position = Vector2(536.00006, -928)
 
 [node name="Drone" type="CharacterBody2D" parent="." unique_id=1387356051]
+visible = false
 position = Vector2(300, -100)
 script = ExtResource("10_efxa6")
 
@@ -2761,6 +2763,14 @@ texture = ExtResource("10_4c57u")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Drone" unique_id=538594499]
 path_desired_distance = 40.0
+
+[node name="Label" type="Label" parent="." unique_id=40343715]
+offset_left = -40.0
+offset_top = -160.0
+offset_right = 275.0
+offset_bottom = -111.0
+text = "This is a light and a charge. E to interact. 
+Don't run out of charge"
 
 [connection signal="area_entered" from="WinZone" to="." method="_on_win_zone_area_entered"]
 [connection signal="area_entered" from="Poweroutlet/Poweroutlet" to="CharacterBody2D" method="_on_poweroutlet_area_entered"]

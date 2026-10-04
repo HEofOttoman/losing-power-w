@@ -2,17 +2,23 @@
 
 [ext_resource type="Script" uid="uid://bhgs1upaahk3y" path="res://addons/maaacks_game_template/base/nodes/menus/main_menu/main_menu.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://dgfrscaa1fpwb" path="res://menu track.mp3" id="2_svmpe"]
+[ext_resource type="Texture2D" uid="uid://d1ojf4s4kxqnf" path="res://screenshot.png" id="3_cw27w"]
 [ext_resource type="Texture2D" uid="uid://cnnfxeck06mnc" path="res://assets/Charger.png" id="3_im16j"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="4_l1ebe"]
 [ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_game_template/base/nodes/labels/config_version_label.gd" id="6_pdiij"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_popup_window_panel.tscn" id="7_im16j"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/nodes/labels/config_name_label.gd" id="7_j7612"]
 
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_im16j"]
+file = "res://explodes.ogv"
+
 [node name="MainMenu" type="Control" unique_id=781937481]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
@@ -24,7 +30,28 @@ stream = ExtResource("2_svmpe")
 autoplay = true
 bus = &"Music"
 
+[node name="BackgroundTextureRect2" type="TextureRect" parent="." unique_id=2057672855]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_cw27w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2051845837]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+scale = Vector2(1, 0.60000014)
+stream = SubResource("VideoStreamTheora_im16j")
+volume_db = -80.0
+autoplay = true
+
 [node name="BackgroundTextureRect" type="TextureRect" parent="." unique_id=1940176448]
+self_modulate = Color(1, 1, 1, 0.4117647)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,7 +86,7 @@ anchor_right = 1.0
 offset_bottom = 67.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
-text = "Losing Power W"
+text = "Cutting Xavier's Toes"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("7_j7612")
@@ -79,7 +106,7 @@ anchor_right = 1.0
 offset_bottom = 34.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 24
-text = "Subtitle"
+text = "Being the AI who wants to kill you"
 horizontal_alignment = 1
 vertical_alignment = 1
 
